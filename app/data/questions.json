@@ -1,0 +1,57 @@
+[{
+    "Id":1,
+    "Text":"你为什么离开了上一家公司？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/background.jpg"
+},
+{
+    "Id":2,
+    "Text":"你最想抽的极品是哪一个？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":3,
+    "Text":"你有没有想过背着另一半约炮？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":4,
+    "Text":"什么时候你感到最孤独无助？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":5,
+    "Text":"喜欢现在呆着的城市吗？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":6,
+    "Text":"认识的人里你最想睡谁，为什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":7,
+    "Text":"你最怀念的前任是哪位？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+},
+{
+    "Id":8,
+    "Text":"你最多的时候一天滚几次床单？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://doqx5s7sou4xu.cloudfront.net/_/ice/icebreaker-lie2.png"
+}
+]
