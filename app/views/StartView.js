@@ -29,7 +29,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             render: function () {
                 this.template = _.template(template, {});
-                
+                Utils.setPageTitle("你敢回答么？" + this.model.get("Text"));
                 this.$el.html(Mustache.render(this.template, this.model.toJSON() ));
                 this.isRendered = true;
                 this.trigger("render");
