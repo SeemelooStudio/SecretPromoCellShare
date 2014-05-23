@@ -1,37 +1,36 @@
 <div class="container">
-    <a class="topBanner backgroundColor-Vanilla" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
-        <div class="topBanner-content" data-entranceAnimation="flipInY">
-            你的朋友想知道...
-        </div>
-        <div class="logo-right" data-entranceAnimation="flipInY">
-            <img src="app/img/fox-right.png">
-        </div>
-    </a>
-    <div class="post backgroundColor-{{ComposeColorName}}">
+
+    <div class="post backgroundColor-{{ComposeColorName}}" data-entranceAnimation="fadeInDown">
         {{^BackgroundImageUrl}}
         <div class="post-mask backgroundMask-{{ComposeTextureName}} insetShadow">
         </div>
         {{/BackgroundImageUrl}}
         {{#BackgroundImageUrl}}
-        <div class="post-mask backgroundMask-Custom insetShadow" style="background-image:url({{BackgroundImageUrl}});">
+        <div class="post-mask backgroundMask-Custom insetShadow">
+            <img class="postBackground" src="{{BackgroundImageUrl}}" />
         </div>
         {{/BackgroundImageUrl}}
+        <div class="post-subTitle">
+            我很想知道...
+        </div>
         <div class="post-content">
             {{Text}} 
         </div>
     </div>
-    <ul class="comments">
+    <ul class="comments" data-entranceAnimation="fadeInDown">
         <li class="comment-download clearfix">
-            <a id="bottomBanner" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" target="_blank">
-                <img id="foxhole" src="app/img/secret/logo-foxhole@2x.png" />
-                <p>「秘密」<br/><small>天机可以泄露</small></p>
-                <img id="download" src="app/img/download.png" />
-                <br />
-            </a>
-            <div class="qrcode">
-                <img src="app/img/qrcode.png" />
-            </div>
-            <div class="comment-download-footer "></div>
+
+                下载「秘密」，看朋友如何作答
+            
+            <div class="comment-caret"></div>
         </li>
     </ul>
+</div>
+
+<a id="btnLink" href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>「秘密」，天机可以泄露<br><small>Available on the App Store</small>
+    <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
+</a>
+
+<div class="qrcode"  data-entranceAnimation="fadeInDown">
+                <img src="app/img/qrcode.png" />
 </div>

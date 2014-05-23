@@ -36,19 +36,43 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 return this;
             },
             postRender: function() {
-                var self = this;
-                Utils.setPageTitle(this.model.get("Text"));
+                var self = this;                
+                this.backgroundMarginTop = 0 - $(".post").width() / 2;
+                this.textPadding = ($('.post').height() - $('.post-content').height()) / 2;
+                
+                $(".postBackground").css ({
+                  "margin-top": this.backgroundMarginTop 
+                });
+                
+                
+
+                $(".post-content").css({
+                    "padding-top":this.textPadding,
+                    "padding-bottom":this.textPadding
+                });
                 
                 this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".logo-right,.topBanner-content,.post-content"),
+                    this.$el.find(".topBanner,.post,.comments,#btnLink,.qrcode"),
                     {
                         "isSequential":true,
                         "sequentialDelay":1000
                     }
                 );
+                this.foxAnimation = new AnimationScheduler(
+                    this.$el.find("#btnLink-fox")
+                );
                 this.animationScheduler.animateIn(function(){
-                    self.$el.find(".container").addClass("boxShadow");
+                  self.foxAnimation.animateIn();
                 });
+                
+                if (window.DeviceOrientationEvent) {
+                    window.addEventListener('deviceorientation', function(eventData){
+                        $(".postBackground").css ({
+                          "margin-top": self.backgroundMarginTop + eventData.beta * 0.5
+                        });
+                    
+                    }, false);
+                }
             },
             preloadWebfontsAndRender: function() {
                 var self = this;
