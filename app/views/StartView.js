@@ -29,14 +29,15 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             render: function () {
                 this.template = _.template(template, {});
-                Utils.setPageTitle("你敢回答么？" + this.model.get("Text"));
+                
                 this.$el.html(Mustache.render(this.template, this.model.toJSON() ));
                 this.isRendered = true;
                 this.trigger("render");
                 return this;
             },
             postRender: function() {
-                var self = this;                
+                var self = this;     
+                Utils.setPageTitle("你敢回答么？" + this.model.get("Text"));           
                 this.backgroundMarginTop = 0 - $(".post").width() / 2;
                 this.textPadding = ($('.post').height() - $('.post-content').height()) / 2;
                 
