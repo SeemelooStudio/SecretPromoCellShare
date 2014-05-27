@@ -13,11 +13,14 @@ define(["jquery", "backbone", "utils",'base64'],
             var question;
             
             this.questions = options.questions;            
-            if ( !id ) {
-                id = Math.floor(Math.random() * this.questions.length) + 1;
+            if ( id ) {
+                question = this.questions.findWhere({ "Id": id });
+                
+            } else {
+                var index = Math.floor(Math.random() * this.questions.length);
+                question = this.questions.at(index);
             }
             
-            question = this.questions.findWhere({ "Id": parseInt(id) });
             if ( question ) {
                     this.set(question.toJSON());
             } else {
