@@ -109,12 +109,15 @@ body {
 }
 
 #preload {
-    width: 100px;
-    margin-left: -50px;
+    width: 31px;
+    margin-left: -15px;
     position: absolute;
     left: 50%;
-    top:45%;
+    top:35%;
     color: #FFF;
+}
+#loading-img img{
+    width: 31px;
 }
 .container {
     width: 100%;
@@ -125,8 +128,8 @@ body {
     background-color: #FFF;
     color: #FFF;
     
-    min-height: 220px;
-    height: 220px;
+    min-height: 280px;
+    height: 280px;
     position: relative;
     
 }
@@ -204,7 +207,7 @@ body {
 }
 .comment-download {
     position: relative;
-    padding: 30px 0;
+    padding: 20px 0 5px;
     margin-bottom: 10px;
 }
 .comment-download-footer {
@@ -452,9 +455,9 @@ a {
 }
 .postBackground {
     position: absolute;
-    left: 0;
+    left: 50%;
     top:50%;
-    width: 100%;
+    width: 120%;
 }
 .postIcon {
     width: 1px;
@@ -519,7 +522,7 @@ a {
 .post-subTitle {
     width: 100%;
     position: absolute;
-    top: 20%;
+    top: 30%;
     text-align: center;
     font-size: 14px;
     left: 0;
@@ -654,8 +657,8 @@ a {
     
     }
     .post {
-        min-height: 200px;
-        height: 200px;
+        min-height: 280px;
+        height: 280px;
     }
     #download {
         width: 160px;

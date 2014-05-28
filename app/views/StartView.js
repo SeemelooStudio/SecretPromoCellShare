@@ -37,12 +37,14 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             postRender: function() {
                 var self = this;     
-                Utils.setPageTitle("你敢回答么？" + this.model.get("Text"));           
-                this.backgroundMarginTop = 0 - $(".post").width() / 2;
+                Utils.setPageTitle("你敢回答么：" + this.model.get("Text"));           
+                this.backgroundMarginTop = 0 - $(".post").width() * 0.6;
+                this.maxDistance = $(".post").width() * 0.1;
                 this.textPadding = ($('.post').height() - $('.post-content').height()) / 2;
                 
                 $(".postBackground").css ({
-                  "margin-top": this.backgroundMarginTop 
+                  "margin-top": this.backgroundMarginTop,
+                  "margin-left": self.backgroundMarginTop
                 });
                 
                 
@@ -66,10 +68,15 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                   self.foxAnimation.animateIn();
                 });
                 
+                
                 if (window.DeviceOrientationEvent) {
                     window.addEventListener('deviceorientation', function(eventData){
+                        var distanceBeta = eventData.beta * 0.4;
+                        var distanceGamma = event.gamma * 0.4;
+ 
                         $(".postBackground").css ({
-                          "margin-top": self.backgroundMarginTop + eventData.beta * 0.5
+                          "margin-top":  self.backgroundMarginTop + distanceBeta,
+                          "margin-left": self.backgroundMarginTop + distanceGamma
                         });
                     
                     }, false);
