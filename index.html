@@ -15,7 +15,24 @@
 <body>
   <!-- Application container. -->
   <main role="main" id="main"></main>
-
+  <div id="downloadOverlay" class="overlay">
+    <div class="clearfix">
+    <img id="downloadArrow" src="app/img/overlayarrow.gif" />
+    </div>
+    <div id="downloadContent">
+        <p>1. 点击右上角的分享按钮 <br /><img src="app/img/shareicon.jpg" width="26px"/></p>
+        
+        <p>2. 在展开的选项中，<br />点击「在Safari中打开」<br /> <img src="app/img/openinsafari.png" width="52px" style="padding-top:10px"/></p>
+    </div>
+    
+  </div>
+  <script>
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('showOptionMenu');
+        document.getElementsByTagName('body')[0].setAttribute("class", "wechat");
+    });
+    
+  </script>
   <!-- Application source. -->
   <!-- build:[src] source.min.js -->
   <script data-main="app/main" src="/vendor/bower/requirejs/require.js"></script>

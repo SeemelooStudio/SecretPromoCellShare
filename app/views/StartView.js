@@ -25,7 +25,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 }
             },
             events: {
-
+                "click #btnLink": "showDownloadTips"
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -85,6 +85,16 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             preloadWebfontsAndRender: function() {
                 var self = this;
                 self.render();
+            },
+            showDownloadTips: function(ev) {
+                if ( Utils.isWechat() ) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    $("#main").addClass("blur");
+                    $("#downloadOverlay").fadeIn();
+                    Backbone.history.navigate("download", { trigger: false, replace: true });
+                }
+                
             }
         });
         return StartView;

@@ -3,6 +3,7 @@ define(function(require, exports, module) {
 
   // External dependencies.
   var Backbone = require("backbone");
+  var Utils = require("utils");
   //views
   var MainView = require("views/MainView");
   var mainView;
@@ -28,6 +29,7 @@ define(function(require, exports, module) {
     },
     routes: {
       "": "index",
+      "download":"download",
       "*action":"index"
     },
 
@@ -38,6 +40,14 @@ define(function(require, exports, module) {
                 startView = new StartView({model: post});
             }
         });
+    },
+    download: function() {
+        if ( Utils.isWechat() ) {
+            Backbone.history.navigate("", { trigger: true, replace: true });
+        } else {
+            window.location.href="https://itunes.apple.com/us/app/mi-misecret/id880007797?ls=1&mt=8";
+        }
+        
     }
   });
 });
