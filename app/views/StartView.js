@@ -10,6 +10,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             initialize: function (options) {
                 this.listenTo(this, "render", this.postRender);
                 var self = this;
+                /*
                 if ( this.model.has("BackgroundImageUrl") ) {
                     var img = new Image();
                     img.onerror = function (err) {
@@ -23,6 +24,8 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 } else {
                     this.preloadWebfontsAndRender();
                 }
+                */
+                this.preloadWebfontsAndRender();
             },
             events: {
                 "click #btnLink": "showDownloadTips"
@@ -87,13 +90,20 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 self.render();
             },
             showDownloadTips: function(ev) {
+                
                 if ( Utils.isWechat() ) {
                     ev.preventDefault();
                     ev.stopPropagation();
                     $("#main").addClass("blur");
-                    $("#downloadOverlay").fadeIn();
+                    $("#downloadOverlay").fadeIn().click(function(){
+                        $("#main").removeClass("blur");
+                        $("#downloadOverlay").fadeOut();
+                        Backbone.history.navigate("", { trigger: false, replace: true });
+                    });
+                    
                     Backbone.history.navigate("download", { trigger: false, replace: true });
                 }
+                _hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);
                 
             }
         });
