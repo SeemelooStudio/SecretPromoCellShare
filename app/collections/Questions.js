@@ -8,7 +8,7 @@ define(["jquery", "backbone"],
         });
         var Questions = Backbone.Collection.extend({
             url: function() {
-               return "app/data/questions.json";
+               return "app/data/questions.json?v=2";
             },
             model:Question
         });

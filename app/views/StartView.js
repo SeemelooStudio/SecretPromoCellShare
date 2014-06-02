@@ -58,10 +58,10 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 });
                 
                 this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".topBanner,.post,.comments,#btnLink,.qrcode"),
+                    this.$el.find(".topBanner,.post,.comments,#btnLink"),
                     {
                         "isSequential":true,
-                        "sequentialDelay":1000
+                        "sequentialDelay":500
                     }
                 );
                 this.foxAnimation = new AnimationScheduler(
@@ -94,14 +94,16 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 if ( Utils.isWechat() ) {
                     ev.preventDefault();
                     ev.stopPropagation();
+                    Backbone.history.navigate("download", { trigger: false, replace: true });
                     $("#main").addClass("blur");
-                    $("#downloadOverlay").fadeIn().click(function(){
+                    $("#downloadOverlay").fadeIn();
+                    $("#downloadOverlay").click(function(){
                         $("#main").removeClass("blur");
                         $("#downloadOverlay").fadeOut();
-                        Backbone.history.navigate("", { trigger: false, replace: true });
+                            Backbone.history.navigate("", { trigger: false, replace: true });
                     });
                     
-                    Backbone.history.navigate("download", { trigger: false, replace: true });
+                    
                 }
                 _hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);
                 

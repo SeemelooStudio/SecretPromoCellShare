@@ -4,50 +4,56 @@
     "Text":"你最多的时候<br />一天滚几次床单？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q9.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q9.jpg",
+    "shareText":"你最多的时候一天滚几次床单？"
 },
 {
     "Id":"city",
     "Text":"喜欢现在呆着的城市吗？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q5.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q5.jpg",
+    "shareText":"你喜欢现在呆着的城市吗？"
 },
 {
     "Id":"ex",
     "Text":"你最怀念的前任是哪位？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q8.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q8.jpg",
+    "shareText":"你最怀念的前任是哪位？"
 },
 {
     "Id":"company",
     "Text":"你为什么<br />离开了上一家公司？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg",
+    "shareText":"你为什么离开了上一家公司？"
 },
-
 {
     "Id":"acquaintance",
     "Text":"认识的人里你最想睡谁，<br />为什么？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q6.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q6.jpg",
+    "shareText":"认识的人里你最想睡谁，为什么？"
 },
 {
     "Id":"lonely",
     "Text":"什么时候你感到最孤独无助？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q4.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q4.jpg",
+    "shareText":"什么时候你感到最孤独无助？"
 },
 {
     "Id":"betray",
     "Text":"你有没有想过<br />背着另一半约炮？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q3.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q3.jpg",
+    "shareText":"你有没有想过背着另一半约炮？"
 },
 
 {
@@ -55,13 +61,79 @@
     "Text":"最讨厌的同事是谁，<br />为什么？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg",
+    "shareText":"最讨厌的同事是谁，为什么？"
 },
 {
     "Id":"fight",
     "Text":"你最想抽的极品是哪一个？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q2.jpg"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q2.jpg",
+    "shareText":"你最想抽的极品是哪一个？"
+},
+{
+    "Id":"dream",
+    "Text":"你有没有不敢<br />告诉别人的梦想，是什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q10.jpg",
+    "shareText":"你有没有不敢告诉别人的梦想，是什么？"
+},
+{
+    "Id":"enjoy",
+    "Text":"你每天最享受的时刻是？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q5.jpg",
+    "shareText":"你每天最享受的时刻是？"
+},
+{
+    "Id":"groupa-rl-1",
+    "Text":"你有没有想过<br />背着另一半约炮？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q3.jpg",
+    "shareText":"你有没有想过背着另一半约炮？"
+},
+{
+    "Id":"groupa-rl-2",
+    "Text":"喜欢现在呆着的城市吗？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q5.jpg",
+    "shareText":"喜欢现在呆着的城市吗？"
+},
+{
+    "Id":"groupa-rl-3",
+    "Text":"你最怀念的前任是哪位？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q8.jpg",
+     "shareText":"你最怀念的前任是哪位？"
+},
+{
+    "Id":"groupb-rl-2",
+    "Text":"你最想抽的极品是哪一个？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q2.jpg",
+    "shareText":"你最想抽的极品是哪一个？"
+},
+{
+    "Id":"groupb-rl-1",
+    "Text":"你每天最享受的时刻是？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q11.jpg",
+    "shareText":"你每天最享受的时刻是？"
+},
+{
+    "Id":"groupb-rl-3",
+    "Text":"你有没有不敢<br />告诉别人的梦想，是什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q10.jpg",
+    "shareText":"你有没有不敢告诉别人的梦想，是什么？"
 }
 ]

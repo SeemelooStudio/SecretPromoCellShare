@@ -9,9 +9,6 @@ require.config({
     "backbone": "../../vendor/bower/backbone/backbone",
     "mustache": '../../vendor/bower/mustache/mustache',
     "text": "../../vendor/bower/text/text",
-    "propertyParser":"../../vendor/bower/requirejs-plugins/src/propertyParser",
-    "image":"../../vendor/bower/requirejs-plugins/src/image",
-    "font":"../../vendor/bower/requirejs-plugins/src/font",
     "base64":"../../vendor/bower/js-base64/base64.min",
     "animationscheduler":"../../vendor/animationScheduler",
     "utils":"../../vendor/utils"

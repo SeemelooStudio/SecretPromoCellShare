@@ -27,6 +27,9 @@ define(["jquery", "backbone", "utils",'base64'],
                     this.set(this.questions.first().toJSON());
             }
             
+            shareInfo.desc = this.get("shareText");
+            shareInfo.img_url = this.get("BackgroundImageUrl");
+            
         }
     });
     
