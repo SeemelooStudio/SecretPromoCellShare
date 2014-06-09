@@ -11,20 +11,22 @@ define(["jquery", "backbone", "utils",'base64'],
             //get id from query string
             var id = Utils.getParameterByName("id", window.location.href);
             var question;
+            var index;
             
             this.questions = options.questions;            
             if ( id ) {
                 question = this.questions.findWhere({ "Id": id });
                 
             } else {
-                var index = Math.floor(Math.random() * this.questions.length);
+                index = Math.floor(Math.random() * this.questions.length);
                 question = this.questions.at(index);
             }
             
             if ( question ) {
                     this.set(question.toJSON());
             } else {
-                    this.set(this.questions.first().toJSON());
+                    index = Math.floor(Math.random() * this.questions.length);
+                    this.set(this.questions.at(index).toJSON());
             }
             
             shareInfo.desc = this.get("shareText");

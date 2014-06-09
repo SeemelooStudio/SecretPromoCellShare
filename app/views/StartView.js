@@ -28,7 +28,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 this.preloadWebfontsAndRender();
             },
             events: {
-                "click #btnLink": "showDownloadTips"
+
             },
             render: function () {
                 this.template = _.template(template, {});

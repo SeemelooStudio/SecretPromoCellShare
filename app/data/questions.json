@@ -85,7 +85,7 @@
     "Text":"你每天最享受的时刻是？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q5.jpg",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q11.jpg",
     "shareText":"你每天最享受的时刻是？"
 },
 {
@@ -135,5 +135,87 @@
     "ComposeTextureName" : "Twilight",
     "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q10.jpg",
     "shareText":"你有没有不敢告诉别人的梦想，是什么？"
+},
+{
+    "Id":"groupc-rl-1",
+    "Text":"此时，你最希望谁出现在身边？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q12.jpg",
+    "shareText":"此时你最希望谁出现在身边？"
+},
+{
+    "Id":"groupc-rl-2",
+    "Text":"你有没有不敢<br />告诉别人的梦想，是什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q10.jpg",
+    "shareText":"你有没有不敢告诉别人的梦想，是什么？"
+},
+{
+    "Id":"groupc-rl-3",
+    "Text":"认识的人里你最想睡谁，<br />为什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q6.jpg",
+    "shareText":"认识的人里你最想睡谁，为什么？"
+},
+{
+    "Id":"groupd-rl-1",
+    "Text":"认识的人里你最想睡谁，<br />为什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q14.jpg",
+    "shareText":"认识的人里你最想睡谁，为什么？"
+},
+{
+    "Id":"groupd-rl-2",
+    "Text":"你最想抽的极品是哪一个？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg",
+    "shareText":"你最想抽的极品是哪一个？"
+},
+
+{
+    "Id":"groupd-rl-3",
+    "Text":"你有没有想过<br />背着另一半约炮？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q3.jpg",
+    "shareText":"你有没有想过背着另一半约炮？"
+},
+{
+    "Id":"groupd-rl-4",
+    "Text":"什么时候你感到最孤独无助？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q4.jpg",
+    "shareText":"什么时候你感到最孤独无助？"
+},
+{
+    "Id":"groupe-rl-1",
+    "Text":"高考完的暑假你都干了什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q26.jpg",
+    "shareText":"高考完的暑假你都干了什么？"
+},
+{
+    "Id":"groupe-rl-2",
+    "Text":"你说的上一个谎是什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q25.jpg",
+    "shareText":"你说的上一个谎是什么？"
+},
+
+{
+    "Id":"groupe-rl-3",
+    "Text":"你的收入和看起来一样多么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q27.jpg",
+    "shareText":"你的收入和看起来一样多么？"
 }
 ]
