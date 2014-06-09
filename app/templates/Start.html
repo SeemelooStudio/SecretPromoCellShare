@@ -18,6 +18,20 @@
         </div>
     </div>
     <ul class="comments" data-entranceAnimation="fadeInDown">
+        {{#Comments}}
+        <li class="comment clearfix"  data-entranceAnimation="fadeInDown">
+            <div class="comment-col-1">
+                <div class="avatar">
+                    <div class="avatarBackground backgroundColor-{{getRandomColorWithoutVanilla}}">
+                    </div>
+                    <img src="app/img/secret/avatar-{{getRandomIcon}}@2x.png" />
+                </div>
+            </div>
+            <div class="comment-col-2">
+                <div class="comment-content">{{Text}}</div>
+            </div>
+        </li>
+        {{/Comments}}
         <li class="comment-download clearfix">
                 想知道我在「秘密」里如何回答？
         </li>

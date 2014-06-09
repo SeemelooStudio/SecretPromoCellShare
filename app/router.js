@@ -34,9 +34,10 @@ define(function(require, exports, module) {
     },
 
     index: function() {
-        questions.fetch({
+        post = new Post();
+        post.fetch({
             success: function(){
-                post = new Post({questions: questions});
+                console.log('here');
                 startView = new StartView({model: post});
             }
         });

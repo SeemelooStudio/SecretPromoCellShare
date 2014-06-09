@@ -1,0 +1,20 @@
+{
+    "Id":"johnlennon",
+    "Text":"你最多的时候<br />一天滚几次床单？",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q9.jpg",
+    "ShareText":"你最多的时候一天滚几次床单？",
+    "Comments":[
+    {
+        "Id":1,
+        "UserAvatarImg": "bird",
+        "UserAvatarColor":"skyfall",
+        "Text":"第一条评论"
+    },
+    {
+        "Id":2,
+        "UserAvatarImg": "bird",
+        "UserAvatarColor":"olive",
+        "Text":"第二条评论"
+    }
+    ]
+}
