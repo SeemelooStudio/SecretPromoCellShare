@@ -217,5 +217,29 @@
     "ComposeTextureName" : "Twilight",
     "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q27.jpg",
     "shareText":"你的收入和看起来一样多么？"
+},
+{
+    "Id":"groupf-rl-1",
+    "Text":"你最多的时候<br/>一天滚几次床单？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/6.jpg",
+    "shareText":"你最多的时候一天滚几次床单？"
+},
+{
+    "Id":"groupf-rl-2",
+    "Text":"你最喜欢YY的明星是谁？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/12.jpg",
+    "shareText":"你最喜欢YY的明星是谁？"
+},
+{
+    "Id":"groupf-rl-3",
+    "Text":"你和你的宠物最难忘的一刻是？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q19.jpg",
+    "shareText":"你和你的宠物最难忘的一刻是？"
 }
 ]
