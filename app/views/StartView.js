@@ -10,22 +10,13 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             initialize: function (options) {
                 this.listenTo(this, "render", this.postRender);
                 var self = this;
-                /*
-                if ( this.model.has("BackgroundImageUrl") ) {
-                    var img = new Image();
-                    img.onerror = function (err) {
-                        self.preloadWebfontsAndRender();
-                    };
-                    img.onload = function(evt){
-                        self.preloadWebfontsAndRender();
-                    };
-                    img.src = this.model.get("BackgroundImageUrl");                    
-                
-                } else {
+
+                 if ( this.model.isFetchSuccess ) {
                     this.preloadWebfontsAndRender();
+                } else {
+                    this.listenTo(this.model, "fetchSuccess", this.preloadWebfontsAndRender);
                 }
-                */
-                this.preloadWebfontsAndRender();
+                
             },
             events: {
 

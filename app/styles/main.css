@@ -565,6 +565,33 @@ a {
 .blur {
     -webkit-filter: blur(4px);
 }
+#commentContainer {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    background: #FFF;
+    width: 100%;
+    z-index: 999;
+}
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-image:none;
+    background-color: #FFF;
+    color:#555;
+    font-size: 14px;
+    line-height: 1.42857143;
+    padding: 6px 12px;
+    height: 24px;
+    box-shadow:none!important;
+    display: block;
+}
+#commentText {
+    float: left;
+}
+#submitComment {
+    float: right;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

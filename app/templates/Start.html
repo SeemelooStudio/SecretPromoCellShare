@@ -16,6 +16,13 @@
         <div class="post-content">
             {{{Text}}} 
         </div>
+        <div class="post-meta">
+            <div class="post-location">{{source}}</div>
+            <div class="post-info">
+                <div class="post-commentsCount"><i class="icon-comment"></i>{{CommentCount}}</div>
+                <div class="post-lovesCount" id="like"><i class="icon-heart"></i>{{LikeCount}}</div>
+            </div>
+        </div>        
     </div>
     <ul class="comments" data-entranceAnimation="fadeInDown">
         {{#Comments}}
@@ -37,7 +44,12 @@
         </li>
     </ul>
 </div>
+<div class="form-inline" id="commentContainer">
 
+    <input type="text" class="form-control" id="commentText" placeholder="匿名发布评论">
+
+  <a id="submitComment" class="btn btn-default">发布</a>
+</div>
 <a id="btnLink" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>点此下载「秘密」
     <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
 </a>

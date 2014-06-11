@@ -13,9 +13,6 @@ define(function(require, exports, module) {
   
   var StartView = require("views/StartView");
   var startView;
-
-  var Questions = require("collections/Questions");
-  var questions;
   
   var Post = require("models/Post");
   var post;
@@ -25,7 +22,6 @@ define(function(require, exports, module) {
     initialize: function() {
         mainView = new MainView();        
         prepareView = new PrepareView();
-        questions = new Questions();
     },
     routes: {
       "": "index",
@@ -35,12 +31,7 @@ define(function(require, exports, module) {
 
     index: function() {
         post = new Post();
-        post.fetch({
-            success: function(){
-                console.log('here');
-                startView = new StartView({model: post});
-            }
-        });
+        startView = new StartView({model: post});
     },
     download: function() {
         if ( Utils.isWechat() ) {
