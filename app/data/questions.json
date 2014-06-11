@@ -28,7 +28,7 @@
     "Text":"你为什么<br />离开了上一家公司？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/14.jpg",
     "shareText":"你为什么离开了上一家公司？"
 },
 {
@@ -157,7 +157,7 @@
     "Text":"认识的人里你最想睡谁，<br />为什么？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q6.jpg",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q14.jpg",
     "shareText":"认识的人里你最想睡谁，为什么？"
 },
 {
@@ -241,5 +241,29 @@
     "ComposeTextureName" : "Twilight",
     "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q19.jpg",
     "shareText":"你和你的宠物最难忘的一刻是？"
+},
+{
+    "Id":"groupg-rl-1",
+    "Text":"你为什么离开了上一家公司？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/19.jpg",
+    "shareText":"你为什么离开了上一家公司？"
+},
+{
+    "Id":"groupg-rl-2",
+    "Text":"你最喜欢在什么地方OOXX？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/10.jpg",
+    "shareText":"你最喜欢在什么地方OOXX？"
+},
+{
+    "Id":"groupg-rl-3",
+    "Text":"开车的时候，<br />你最希望副驾驶上是谁？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q17.jpg",
+    "shareText":"开车的时候，你最希望副驾驶上坐的是谁？"
 }
 ]
