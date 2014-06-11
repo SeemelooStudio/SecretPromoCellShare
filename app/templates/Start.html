@@ -16,13 +16,15 @@
         <div class="post-content">
             {{{Text}}} 
         </div>
+        {{^isStatic}}
         <div class="post-meta">
             <div class="post-location">{{source}}</div>
             <div class="post-info">
                 <div class="post-commentsCount"><i class="icon-comment"></i>{{CommentCount}}</div>
                 <div class="post-lovesCount" id="like"><i class="icon-heart"></i>{{LikeCount}}</div>
             </div>
-        </div>        
+        </div>
+        {{/isStatic}}        
     </div>
     <ul class="comments" data-entranceAnimation="fadeInDown">
         {{#Comments}}

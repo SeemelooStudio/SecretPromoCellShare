@@ -19,7 +19,8 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 
             },
             events: {
-
+                "click #submitComment":"onClickSubmit",
+                "click #like":"onClickLike"
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -98,6 +99,16 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
                 }
                 _hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);
                 
+            },
+            onClickSubmit: function(ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                this.model.comment();
+            },
+            onClickLike: function(ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                this.model.like();
             }
         });
         return StartView;

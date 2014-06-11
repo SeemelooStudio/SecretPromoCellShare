@@ -572,6 +572,7 @@ a {
     background: #FFF;
     width: 100%;
     z-index: 999;
+    border-top: 1px solid #dedede;
 }
 .form-control {
     border: 1px solid #ccc;
@@ -585,12 +586,18 @@ a {
     height: 24px;
     box-shadow:none!important;
     display: block;
+    -webkit-box-shadow:none;
+    box-shadow: none;
+    -webkit-appearance: none;
 }
 #commentText {
     float: left;
+    width: 200px;
 }
 #submitComment {
     float: right;
+    margin-right: 20px;
+    cursor: pointer;
 }
 /* ==========================================================================
    Helper classes

@@ -7,6 +7,7 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             "LikeCount":0,
             "CommentCount":0,
             "Comments":[],
+            "isStatic":true,
             "getRandomMask": function(){
                 var MaskRepo = ["Carbon", "Timber", "Disco","Haze","Twilight", "Distressed", "Metal","Tweed", "Grime", "Dream","Denim", "Glow","Plain", "Concrete"];
 
@@ -32,7 +33,7 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             }
             
         },
-        url:"app/data/post.json",
+        url:"http://secret.fimvisual.com/index.php/Home/Index/Post/questionid/johnlennon/userid/someguy/",
         initialize: function(options){
             this.isFetchSuccess = false;
             var self = this;
@@ -47,7 +48,6 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                 this.questions.fetch({
                    success: function() {
                        self.setStaticQuestionById(this.questionId);
-                       self.set( self.questions.at(0).toJSON() );
                        self.trigger("fetchSuccess");
                        self.isFetchSuccess = true;
                    },
@@ -66,18 +66,41 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             
         },
         setStaticQuestionById: function(id) {
+            if ( id ) {
+                question = this.questions.findWhere({ "Id": id });
+                
+            } else {
+                index = Math.floor(Math.random() * this.questions.length);
+                question = this.questions.at(index);
+            }
             
+            if ( question ) {
+                    this.set(question.toJSON());
+            } else {
+                    index = Math.floor(Math.random() * this.questions.length);
+                    this.set(this.questions.at(index).toJSON());
+            }            
         },
         fetchData: function() {
             var self = this;
-            this.fetch({
-                    success: function() {
-                        self.trigger("fetchSuccess");
-                        self.isFetchSuccess = true;
-                    },
-                    error: function() {
-                        
-                    }
+            var url = "http://secret.fimvisual.com/index.php/Home/Index/Post/" + 
+            $.ajax({
+                  url: "http://secret.fimvisual.com/index.php/Home/Index/Post/questionid/johnlennon/userid/someguy/",
+                  //url: "app/data/openid.json",
+                  type : "get",
+                  dataType: "jsonp",
+                  success: function(data, textStatus, jqXHR){
+                    self.set(data);
+                    self.set("isStatic", false);
+                    self.trigger("fetchSuccess");
+                    self.isFetchSuccess = true;
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                    alert(textStatus);
+                        if ( options.onError ) {
+                            options.onError(textStatus);
+                        }
+                  }
             });
         },
         login: function() {
@@ -114,10 +137,53 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                 }); 
         },
         comment: function() {
-            
+            var self = this;
+            $.ajax({
+                  url: "http://secret.fimvisual.com/index.php/Home/Index/Comment/",
+                  //url: "app/data/openid.json",
+                  type : "post",
+                  data: {
+                      "questionid":"johnlennon",
+                      "userid":"someguy",
+                      "openid":"open_id_1",
+                      "content":"nihao你好"
+                  },
+                  dataType: "jsonp",
+                  success: function(data, textStatus, jqXHR){
+                    console.log(data);
+                      
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                    alert(textStatus);
+                        if ( options.onError ) {
+                            options.onError(textStatus);
+                        }
+                  }
+            }); 
         },
         like: function() {
-            
+            var self = this;
+            $.ajax({
+                  url: "http://secret.fimvisual.com/index.php/Home/Index/Like/",
+                  //url: "app/data/openid.json",
+                  type : "post",
+                  data: {
+                      "questionid":"johnlennon",
+                      "userid":"someguy",
+                      "openid":"open_id_1"
+                  },
+                  dataType: "jsonp",
+                  success: function(data, textStatus, jqXHR){
+                    console.log(data);
+                      
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                    alert(textStatus);
+                        if ( options.onError ) {
+                            options.onError(textStatus);
+                        }
+                  }                
+            });
         }
         
     });
