@@ -1,7 +1,7 @@
 // StartView.js
 // -------
-define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animationscheduler", "utils"],
-    function ($, Backbone, Mustache, template, AnimationScheduler, Utils) {
+define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!templates/Comment.html", "animationscheduler", "utils"],
+    function ($, Backbone, Mustache, template, commentTemplate, AnimationScheduler, Utils) {
 
         var StartView = Backbone.View.extend({
 
@@ -24,7 +24,6 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             },
             render: function () {
                 this.template = _.template(template, {});
-                console.log(this.model);
                 this.$el.html(Mustache.render(this.template, this.model.toJSON() ));
                 this.isRendered = true;
                 this.trigger("render");
@@ -103,12 +102,58 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "animatio
             onClickSubmit: function(ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
-                this.model.comment();
+                var content = this.$el.find("#commentText").val();
+                var self = this;
+                if ( content && content !== "" ) {
+                    this.$el.find("#commentContainer").addClass("animated fadeOutDown");
+                    this.model.comment({
+                        "content": content,
+                        "onSuccess": function() {
+                            self.appendComment(content);
+                        }
+                    });
+                }
+                
             },
             onClickLike: function(ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
-                this.model.like();
+                var self = this;
+                this.model.like({
+                    onSuccess: function() {
+                        self.toggleLike();
+                    }
+                });
+            },
+            toggleLike: function() {
+                var isLiked = this.model.get("isLiked");
+                var likeCount = this.model.get("LikeCount");
+                
+                if ( isLiked ) {
+                    this.model.set("isLiked", false );
+                    this.model.set("LikeCount", likeCount - 1);
+                    this.$el.find(".icon-heart-liked").removeClass("icon-heart-liked").addClass("icon-heart");
+                    this.$el.find("#likeCount").text(likeCount - 1);
+                } else {
+                    this.model.set("isLiked", true );
+                    this.model.set("LikeCount", likeCount + 1);
+                    this.$el.find(".icon-heart").removeClass("icon-heart").addClass("icon-heart-liked")
+                    this.$el.find("#likeCount").text(likeCount + 1);
+                }
+            },
+            appendComment: function(content) {
+                var comment = _.template(commentTemplate, {});
+                this.$el.find('.comments').append(Mustache.render(comment, {
+                    "Text":content,
+                    "UserAvatarColor": this.model.get("getRandomColorWithoutVanilla"),
+                    "UserAvatarImg": this.model.get("getRandomIcon")
+                } ));
+                
+                this.$el.find("#commentText").val("");
+                
+            },
+            submitCommentFail: function(content) {
+                
             }
         });
         return StartView;

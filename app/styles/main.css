@@ -107,7 +107,9 @@ body {
     font-family: "Microsoft Yahei", sans-serif;
     font-size: 14px;
 }
-
+#main {
+    padding-bottom: 60px;
+}
 #preload {
     width: 31px;
     margin-left: -15px;
@@ -182,7 +184,6 @@ body {
     left: 0;
     top: 0;
     background-size: 100% 100%;
-    opacity: 0.6;
     
 }
 .insetShadow {
@@ -262,14 +263,17 @@ body {
     position: relative;
 }
 
-.icon-comment,.icon-heart {
-    width: 18px;
+.icon-comment,.icon-heart,.icon-heart-liked {
+    width: 19px;
     height: 1.4em;
     vertical-align: top;
-    background: url(../../app/img/secret/icon-heart-fill@2x.png) no-repeat center center;
+    background: url(../../app/img/secret/icon-heart-empty@2x.png) no-repeat center center;
     background-size: 18px 18px;
     display: inline-block;
     margin-right: 10px;
+}
+.icon-heart-liked {
+    background-image: url(../../app/img/secret/icon-heart-liked@2x.png);
 }
 .icon-comment {
     background-image: url(../../app/img/secret/icon-comment-fill@2x.png);
@@ -593,11 +597,18 @@ a {
 #commentText {
     float: left;
     width: 200px;
+    border:none;
 }
 #submitComment {
     float: right;
     margin-right: 20px;
     cursor: pointer;
+    background:none;
+    border:none;
+    color: #333;
+}
+.comments {
+    padding-bottom: 30px;
 }
 /* ==========================================================================
    Helper classes

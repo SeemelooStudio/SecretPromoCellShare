@@ -21,7 +21,14 @@
             <div class="post-location">{{source}}</div>
             <div class="post-info">
                 <div class="post-commentsCount"><i class="icon-comment"></i>{{CommentCount}}</div>
-                <div class="post-lovesCount" id="like"><i class="icon-heart"></i>{{LikeCount}}</div>
+                <div class="post-lovesCount" id="like">
+                    {{^isLiked}}
+                    <i class="icon-heart"></i><span id="likeCount">{{LikeCount}}</span>
+                    {{/isLiked}}
+                    {{#isLiked}}
+                    <i class="icon-heart-liked"></i><span id="likeCount">{{LikeCount}}</span>
+                    {{/isLiked}}
+                </div>
             </div>
         </div>
         {{/isStatic}}        
@@ -33,7 +40,7 @@
                 <div class="avatar">
                     <div class="avatarBackground backgroundColor-{{getRandomColorWithoutVanilla}}">
                     </div>
-                    <img src="app/img/secret/avatar-{{getRandomIcon}}@2x.png" />
+                    <img src="app/img/secret/avatar-{{UserAvatarImg}}@2x.png" />
                 </div>
             </div>
             <div class="comment-col-2">
@@ -41,9 +48,6 @@
             </div>
         </li>
         {{/Comments}}
-        <li class="comment-download clearfix">
-                想知道我在「秘密」里如何回答？
-        </li>
     </ul>
 </div>
 <div class="form-inline" id="commentContainer">
