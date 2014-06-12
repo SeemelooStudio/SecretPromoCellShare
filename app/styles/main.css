@@ -109,6 +109,7 @@ body {
 }
 #main {
     padding-bottom: 60px;
+    position: relative;
 }
 #preload {
     width: 31px;
@@ -233,7 +234,7 @@ body {
 }
 .comment-content {
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.5em;
     padding: 2px 0;
 }
@@ -242,11 +243,13 @@ body {
     font-size: 0.8em;
 }
 .avatar {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     padding: 6px;
     border-radius: 18px;
     position: relative;
+    line-height: 18px;
+    font-size: 12px;
 }
 .avatarBackground {
     position: absolute;
@@ -322,6 +325,14 @@ a {
 #download {
     width: 100px;
     margin-bottom: 20px;
+}
+.comment-meta {
+    color: #999;
+    font-size: 10px;
+    text-align: left;
+}
+#btnLink {
+    margin-top:30px;
 }
 /*Cobalt Skyfall Aquamarine Olive Cash EmeraldSea Hopscotch Lavender Burst Cupid Peony Midnight  Vanilla */
 
@@ -607,8 +618,23 @@ a {
     border:none;
     color: #333;
 }
-.comments {
-    padding-bottom: 30px;
+
+.fixfixed #commentContainer {
+    position: absolute;
+}
+
+#loadingTip {
+    padding: 3px 6px;
+    background-color: #333;
+    border-radius: 3px;
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    width: 75%;
+    left: 12.5%;
+}
+#like {
+    cursor: pointer;
 }
 /* ==========================================================================
    Helper classes

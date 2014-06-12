@@ -9,6 +9,8 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
             
             initialize: function (options) {
                 this.listenTo(this, "render", this.postRender);
+                this.isSubmitingComment = false;
+                this.isSubmitingLike = false;
                 var self = this;
 
                  if ( this.model.isFetchSuccess ) {
@@ -20,7 +22,9 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
             },
             events: {
                 "click #submitComment":"onClickSubmit",
-                "click #like":"onClickLike"
+                "click #like":"onClickLike",
+                "focus #commentText":"onFocusInput",
+                "blur #commentText":"onBlurInput"
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -49,18 +53,14 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 });
                 
                 this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".topBanner,.post,.comments,#btnLink"),
+                    this.$el.find(".post,.comments,.post-content"),
                     {
                         "isSequential":true,
                         "sequentialDelay":500
                     }
                 );
-                this.foxAnimation = new AnimationScheduler(
-                    this.$el.find("#btnLink-fox")
-                );
-                this.animationScheduler.animateIn(function(){
-                  self.foxAnimation.animateIn();
-                });
+
+                this.animationScheduler.animateIn();
                 
                 
                 if (window.DeviceOrientationEvent) {
@@ -80,38 +80,34 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 var self = this;
                 self.render();
             },
-            showDownloadTips: function(ev) {
-                
-                if ( Utils.isWechat() ) {
-                    ev.preventDefault();
-                    ev.stopPropagation();
-                    Backbone.history.navigate("download", { trigger: false, replace: true });
-                    $("#main").addClass("blur");
-                    $("#downloadOverlay").fadeIn();
-                    $("#downloadOverlay").click(function(){
-                        $("#main").removeClass("blur");
-                        $("#downloadOverlay").fadeOut();
-                            Backbone.history.navigate("", { trigger: false, replace: true });
-                    });
-                    
-                    
-                }
-                _hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);
-                
-            },
             onClickSubmit: function(ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
+               
                 var content = this.$el.find("#commentText").val();
                 var self = this;
-                if ( content && content !== "" ) {
-                    this.$el.find("#commentContainer").addClass("animated fadeOutDown");
-                    this.model.comment({
-                        "content": content,
-                        "onSuccess": function() {
-                            self.appendComment(content);
-                        }
-                    });
+                
+                if ( !this.isSubmitingComment ) {
+                    this.isSubmitingComment = true;
+                    if ( content && content !== "" ) {
+                        
+                        this.$el.find("#commentContainer").addClass("animated fadeOutDown");
+                        this.$el.find("#loadingTip").removeClass("hidden").addClass("animated fadeInDown");
+                         
+                        this.model.comment({
+                            "content": content,
+                            "onSuccess": function() {
+                                self.appendComment(content);
+                                self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutUp");
+                                self.isSubmitingComment = false;
+                            },
+                            "onError": function() {
+                                self.$el.find("#commentContainer").removeClass("animated fadeOutDown").addClass("animated fadeInUp");
+                                self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutUp");
+                                self.isSubmitingComment = false;
+                            }
+                        });
+                    }
                 }
                 
             },
@@ -119,11 +115,18 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 ev.preventDefault();
                 ev.stopPropagation();
                 var self = this;
-                this.model.like({
-                    onSuccess: function() {
-                        self.toggleLike();
+                if ( !this.isSubmitingLike ) {
+                    if ( !this.model.get("isStatic") ) {
+                        self.isSubmitingLike = true;
+                        this.model.like({
+                            onSuccess: function() {
+                                self.toggleLike();
+                                self.isSubmitingLike = false;
+                            }
+                        });
                     }
-                });
+                }
+                
             },
             toggleLike: function() {
                 var isLiked = this.model.get("isLiked");
@@ -137,7 +140,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 } else {
                     this.model.set("isLiked", true );
                     this.model.set("LikeCount", likeCount + 1);
-                    this.$el.find(".icon-heart").removeClass("icon-heart").addClass("icon-heart-liked")
+                    this.$el.find(".icon-heart").removeClass("icon-heart").addClass("icon-heart-liked");
                     this.$el.find("#likeCount").text(likeCount + 1);
                 }
             },
@@ -154,6 +157,12 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
             },
             submitCommentFail: function(content) {
                 
+            },
+            onFocusInput: function(ev) {
+                $('body').addClass('fixfixed');
+            },
+            onBlurInput: function(ev) {
+                $('body').removeClass('fixfixed');
             }
         });
         return StartView;

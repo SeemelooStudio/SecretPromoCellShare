@@ -13,14 +13,14 @@
         <div class="post-subTitle">
             我很想知道...
         </div>
-        <div class="post-content">
+        <div class="post-content"   data-entranceAnimation="fadeInUp">
             {{{Text}}} 
         </div>
-        {{^isStatic}}
+        
         <div class="post-meta">
             <div class="post-location">{{source}}</div>
             <div class="post-info">
-                <div class="post-commentsCount"><i class="icon-comment"></i>{{CommentCount}}</div>
+                <div class="post-commentsCount"><i class="icon-comment"></i><span class="commentCount">{{CommentCount}}</span></div>
                 <div class="post-lovesCount" id="like">
                     {{^isLiked}}
                     <i class="icon-heart"></i><span id="likeCount">{{LikeCount}}</span>
@@ -31,9 +31,9 @@
                 </div>
             </div>
         </div>
-        {{/isStatic}}        
+               
     </div>
-    <ul class="comments" data-entranceAnimation="fadeInDown">
+    <ul class="comments">
         {{#Comments}}
         <li class="comment clearfix"  data-entranceAnimation="fadeInDown">
             <div class="comment-col-1">
@@ -45,17 +45,28 @@
             </div>
             <div class="comment-col-2">
                 <div class="comment-content">{{Text}}</div>
+                <div class="comment-meta">{{getIndex}}楼 {{#getTime}}{{Timestamp}}{{/getTime}}</div>
             </div>
         </li>
         {{/Comments}}
+        {{#isStatic}}
+        <li class="comment-download clearfix">
+                想知道我在「秘密」里如何回答？
+        </li>
+        {{/isStatic}}
     </ul>
+    <a id="btnLink" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary btn-lg btn-block hidden"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>点此下载「秘密」
+    <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
+    </a>
 </div>
+
+<div id="loadingTip" class="hidden">「秘密」正在漂洋过海，为您保存</div>
+
+{{^isStatic}}
 <div class="form-inline" id="commentContainer">
 
     <input type="text" class="form-control" id="commentText" placeholder="匿名发布评论">
 
   <a id="submitComment" class="btn btn-default">发布</a>
 </div>
-<a id="btnLink" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>点此下载「秘密」
-    <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
-</a>
+{{/isStatic}}

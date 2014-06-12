@@ -2,7 +2,9 @@
 
 define(["jquery", "backbone", "utils","collections/Questions"],
     function($, Backbone, Utils, Questions){
+    var startIndex = 0;
     var Post = Backbone.Model.extend({
+        
         defaults:{
             "LikeCount":0,
             "CommentCount":0,
@@ -29,7 +31,28 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                 return Utils.getRandomItemFromArray(IconRepo);
             },
             "getTime": function() {
-                return "1天前";
+                return function(ts, render) {
+                    var timeStr = "";
+                    var now = (new Date()).getTime();
+                    var duration = Math.floor((now / 1000 - render(ts) ));
+                    if ( duration < 60 ) {
+                        timeStr = "刚刚";
+                    } else if ( duration < 3600 ) {
+                        timeStr = Math.floor( duration / 60 ) + "分钟前";
+                    } else if ( duration < 3600 * 24 ) {
+                        timeStr = Math.floor( duration / 3600 ) + "小时前";
+                    } else if ( duration < 3600 * 24 * 30 ) {
+                        timeStr = Math.floor( duration / 3600 / 24 ) + "个月前";
+                    } else {
+                        timeStr = "1年前";
+                    }
+                    return timeStr;
+                };
+                
+                
+            },
+            "getIndex": function() {
+                return ++startIndex;
             }
             
         },
@@ -49,66 +72,80 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                 this.postId = Utils.getParameterByName("userid", window.location.href);
             }
             if ( !this.postId ) {
-                //load static questions
-                this.questions = new Questions();
-                this.questions.fetch({
-                   success: function() {
-                       self.setStaticQuestionById(this.questionId);
-                       self.trigger("fetchSuccess");
-                       self.isFetchSuccess = true;
-                   },
-                   error: function() {
-                       
-                   }
+                self.setStaticQuestionById({
+                           "onSuccess": function() {
+                               self.set("isStatic", true);
+                               self.trigger("fetchSuccess");
+                               self.isFetchSuccess = true;
+                           }
                 });
                 
             } else if ( !this.openId ) {
-                this.login();
+                if ( Utils.isWechat() ) {
+                    this.login();
+                } else {
+                    this.fetchData({
+                        onSuccess: function() {
+                            self.set("isStatic", true);
+                            self.trigger("fetchSuccess");
+                            self.isFetchSuccess = true;
+                        }
+                    });
+                }
+                
             } else {
-                this.url = "app/data/questions.json?questionid=" + this.questionId + "&" + "?postid=" + this.postId;
-                this.fetchData();
+                this.fetchData({
+                        onSuccess: function() {
+                            self.checkLike();
+                            self.set("isStatic", false);
+                        }
+                });
                 
             }
             
         },
-        setStaticQuestionById: function(id) {
-            if ( id ) {
-                question = this.questions.findWhere({ "Id": id });
-                
-            } else {
-                index = Math.floor(Math.random() * this.questions.length);
-                question = this.questions.at(index);
+        setStaticQuestionById: function(options) {
+            if ( !this.questionId ) {
+                this.questionId = "random"; 
             }
-            
-            if ( question ) {
-                    this.set(question.toJSON());
-            } else {
-                    index = Math.floor(Math.random() * this.questions.length);
-                    this.set(this.questions.at(index).toJSON());
-            }            
-        },
-        fetchData: function() {
             var self = this;
-            var url = "http://secret.fimvisual.com/index.php/Home/Index/Post/questionid/" + this.questionId + "/userid/" + this.postId + "/";
-            console.log(url);
+            var url = "http://secret.fimvisual.com/index.php/Home/Index/Question/questionid/" + this.questionId ;
             $.ajax({
                   url: url,
                   //url: "app/data/openid.json",
                   type : "get",
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
-                    console.log(data);
                     self.set(data);
-                    self.checkLike();
-                    self.set("isStatic", false);
-                    self.trigger("fetchSuccess");
-                    self.isFetchSuccess = true;
+                    if ( options && options.onSuccess ) {
+                        options.onSuccess();
+                    }                    
                   },
                   error: function(jqXHR, textStatus, errorThrown){
-                    alert(textStatus);
-                        if ( options.onError ) {
-                            options.onError(textStatus);
-                        }
+                    if ( options & options.onError ) {
+                        options.onError(textStatus);
+                    }
+                  }
+            });         
+        },
+        fetchData: function(options) {
+            var self = this;
+            var url = "http://secret.fimvisual.com/index.php/Home/Index/Post/questionid/" + this.questionId + "/userid/" + this.postId + "/";
+            $.ajax({
+                  url: url,
+                  //url: "app/data/openid.json",
+                  type : "get",
+                  dataType: "jsonp",
+                  success: function(data, textStatus, jqXHR){
+                    self.set(data);
+                    if ( options && options.onSuccess ) {
+                        options.onSuccess();
+                    }                    
+                  },
+                  error: function(jqXHR, textStatus, errorThrown){
+                    if ( options & options.onError ) {
+                        options.onError(textStatus);
+                    }
                   }
             });
         },
@@ -159,12 +196,10 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                   },
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
-                    console.log(data);
                     options.onSuccess(options.content);
                       
                   },
                   error: function(jqXHR, textStatus, errorThrown){
-                    console.log(textStatus);
             
                   }
             }); 
