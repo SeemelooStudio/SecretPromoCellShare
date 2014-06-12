@@ -1,5 +1,53 @@
 [
 {
+    "Id":"wc1",
+    "Text":"世界杯来了，<br />你是从哪一届世界杯开始看球的？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f1.jpg",
+    "shareText":"世界杯来了，你是从哪一届世界杯开始看球的？"
+},
+{
+    "Id":"wc2",
+    "Text":"世界杯来了，<br />历届世界杯你最喜欢的球员是谁呢？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f2.jpg",
+    "shareText":"世界杯来了，历届世界杯你最喜欢的球员是谁呢？"
+},
+{
+    "Id":"wc3",
+    "Text":"世界杯来了，<br />历届世界杯哪一场比赛让你印象最深刻？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f3.jpg",
+    "shareText":"世界杯来了，历届世界杯哪一场比赛让你印象最深刻？"
+},
+{
+    "Id":"wc4",
+    "Text":"你身边有几个女球迷？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f4.jpg",
+    "shareText":"你身边有几个女球迷？"
+},
+{
+    "Id":"wc5",
+    "Text":"世界杯历史上你最喜欢的进球是哪个？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f5.jpg",
+    "shareText":"世界杯历史上你最喜欢的进球是哪个？"
+},
+{
+    "Id":"wc6",
+    "Text":"2014巴西世界杯，<br />你觉得哪支球队最有可能夺冠？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f6.jpg",
+    "shareText":"2014巴西世界杯，你觉得哪支球队最有可能夺冠？"
+},
+{
     "Id":"johnlennon",
     "Text":"你最多的时候<br />一天滚几次床单？",
     "ComposeColorName" : "Midnight",
