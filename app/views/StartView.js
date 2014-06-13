@@ -53,15 +53,19 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 });
                 
                 this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".post,.comments,.post-content"),
+                    this.$el.find(".post,.comments,.post-content,#btnLink"),
                     {
                         "isSequential":true,
                         "sequentialDelay":500
                     }
                 );
 
-                this.animationScheduler.animateIn();
-                
+                this.foxAnimation = new AnimationScheduler(
+                    this.$el.find("#btnLink-fox")
+                );
+                this.animationScheduler.animateIn(function(){
+                  self.foxAnimation.animateIn();
+                });
                 
                 if (window.DeviceOrientationEvent) {
                     window.addEventListener('deviceorientation', function(eventData){
@@ -75,6 +79,9 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                     
                     }, false);
                 }
+                
+                shareInfo.desc = this.model.get("shareText");
+                shareInfo.img_url = this.model.get("BackgroundImageUrl");
             },
             preloadWebfontsAndRender: function() {
                 var self = this;
