@@ -10,6 +10,7 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             "CommentCount":0,
             "Comments":[],
             "isStatic":true,
+            "isPost":false,
             "getRandomMask": function(){
                 var MaskRepo = ["Carbon", "Timber", "Disco","Haze","Twilight", "Distressed", "Metal","Tweed", "Grime", "Dream","Denim", "Glow","Plain", "Concrete"];
 
@@ -87,6 +88,7 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                     this.fetchData({
                         onSuccess: function() {
                             self.set("isStatic", true);
+                            self.set("isPost", true);
                             self.trigger("fetchSuccess");
                             self.isFetchSuccess = true;
                         }
@@ -98,8 +100,10 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                         onSuccess: function() {
                             self.checkLike();
                             self.set("isStatic", false);
+                            self.set("isPost", true);
                         }
                 });
+                shareInfo.link = window.location.hostname + window.location.pathname +  "?questionid="+ this.questionId + "&userid=" + this.postId;
                 
             }
             
@@ -109,9 +113,15 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                 this.questionId = "random"; 
             }
             var self = this;
-            var url = "http://secret.fimvisual.com/index.php/Home/Index/Question/questionid/" + this.questionId ;
+            var url = "http://seemeloo.hortor.net/index.php";
             $.ajax({
                   url: url,
+                  data:{
+                    "m":"home",
+                    "c":"index",
+                    "a":"question",
+                    "questionid":this.questionId,
+                  },
                   //url: "app/data/openid.json",
                   type : "get",
                   dataType: "jsonp",
@@ -130,14 +140,23 @@ define(["jquery", "backbone", "utils","collections/Questions"],
         },
         fetchData: function(options) {
             var self = this;
-            var url = "http://secret.fimvisual.com/index.php/Home/Index/Post/questionid/" + this.questionId + "/userid/" + this.postId + "/";
+            var url = "http://seemeloo.hortor.net/index.php";
             $.ajax({
                   url: url,
-                  //url: "app/data/openid.json",
+                  data:{
+                    "m":"home",
+                    "c":"index",
+                    "a":"post",
+                    "questionid":this.questionId,
+                    "userid":this.postId
+                  },
                   type : "get",
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
                     self.set(data);
+                    if ( self.get("CommentCount") > 0 ) {
+                        shareInfo.title = "你有" + self.get("CommentCount") + "个朋友回答了这个问题，你呢？";
+                    }
                     if ( options && options.onSuccess ) {
                         options.onSuccess();
                     }                    
@@ -151,44 +170,21 @@ define(["jquery", "backbone", "utils","collections/Questions"],
         },
         login: function() {
             var parma = "?userid=" + this.postId + "&questionid=" + this.questionId;
+            window.setTimeout( function(){
+                window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4430f486fe653764&redirect_uri=http%3A%2F%2Fseemeloo.hortor.net%2Fwx.php" + encodeURIComponent(parma) + "&response_type=code&scope=snsapi_base&state=data#wechat_redirect";
+            },0);
             
-            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4430f486fe653764&redirect_uri=http%3A%2F%2Fwww.fimvisual.com%2Fwx.php" + encodeURIComponent(parma) + "&response_type=code&scope=snsapi_base&state=data#wechat_redirect";
-        },
-        getOpenId: function(options) {
-                var self = this;
-                $.ajax({
-                  url: "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4430f486fe653764&redirect_uri=http%3A%2F%2Fwww.fimvisual.com%2Fwx.php&response_type=code&scope=snsapi_base&state=data#wechat_redirect",
-                  //url: "app/data/openid.json",
-                  type : "get",
-                  dataType: "json",
-                  success: function(data, textStatus, jqXHR){
-                    alert(data.openid);
-                    if( data && data.openid) {
-                        self.set("openid", data.openid);
-                        
-                    } else {
-                        if ( options.onError ) {
-                            options.onError();
-                        }
-                    }
-                    
-                      
-                  },
-                  error: function(jqXHR, textStatus, errorThrown){
-                    alert(textStatus);
-                        if ( options.onError ) {
-                            options.onError(textStatus);
-                        }
-                  }
-                }); 
         },
         comment: function(options) {
             var self = this;
             $.ajax({
-                  url: "http://secret.fimvisual.com/index.php/Home/Index/Comment/",
+                  url: "http://seemeloo.hortor.net/index.php",
                   //url: "app/data/openid.json",
                   type : "post",
                   data: {
+                        "m":"home",
+                        "c":"index",
+                        "a":"comment",
                       "questionid":this.questionId,
                       "userid":this.postId,
                       "openid":this.openId,
@@ -207,10 +203,13 @@ define(["jquery", "backbone", "utils","collections/Questions"],
         like: function(options) {
             var self = this;
             $.ajax({
-                  url: "http://secret.fimvisual.com/index.php/Home/Index/Like/",
+                  url: "http://seemeloo.hortor.net/index.php",
                   //url: "app/data/openid.json",
                   type : "post",
                   data: {
+                        "m":"home",
+                        "c":"index",
+                        "a":"like",
                       "questionid": this.questionId,
                       "userid": this.postId,
                       "openid": this.openId
@@ -231,10 +230,19 @@ define(["jquery", "backbone", "utils","collections/Questions"],
         },
         checkLike: function() {
             var self = this;
-            var url = "http://secret.fimvisual.com/index.php/Home/Index/Like/questionid/" + this.questionId + "/userid/" + this.postId + "/openid/" + this.openId  + "/checklike/1/";
+            var url = "http://seemeloo.hortor.net/index.php";
             $.ajax({
                url: url,
                type: "get",
+               data: {
+                        "m":"home",
+                        "c":"index",
+                        "a":"like",
+                      "questionid": this.questionId,
+                      "userid": this.postId,
+                      "openid": this.openId,
+                      "checklike":1
+               },
                dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
                     console.log(data);

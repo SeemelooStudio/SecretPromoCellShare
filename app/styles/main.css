@@ -112,12 +112,11 @@ body {
     position: relative;
 }
 #preload {
-    width: 31px;
-    margin-left: -15px;
     position: absolute;
-    left: 50%;
-    top:35%;
-    color: #FFF;
+    left: 0;
+    top:100px;
+    width: 100%;
+    text-align: center;
 }
 #loading-img img{
     width: 31px;
@@ -635,6 +634,22 @@ a {
 }
 #like {
     cursor: pointer;
+}
+#scrollTop {
+    position: fixed;
+    right: 15px;
+    bottom: 140px;
+    width: 28px;
+    padding: 6px;
+    background-color: #444;
+    font-size: 10px;
+    color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#scrollTop img {
+    max-width: 100%;
+    margin-bottom: 4px;
 }
 /* ==========================================================================
    Helper classes

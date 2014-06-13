@@ -24,7 +24,8 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 "click #submitComment":"onClickSubmit",
                 "click #like":"onClickLike",
                 "focus #commentText":"onFocusInput",
-                "blur #commentText":"onBlurInput"
+                "blur #commentText":"onBlurInput",
+                "click #scrollTop" : "onClickScrollTop"
             },
             render: function () {
                 this.template = _.template(template, {});
@@ -45,8 +46,6 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                   "margin-left": self.backgroundMarginTop
                 });
                 
-                
-
                 $(".post-content").css({
                     "padding-top":this.textPadding,
                     "padding-bottom":this.textPadding
@@ -79,8 +78,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                     
                     }, false);
                 }
-                
-                shareInfo.desc = this.model.get("shareText");
+                shareInfo.desc = this.model.get("ShareText");
                 shareInfo.img_url = this.model.get("BackgroundImageUrl");
             },
             preloadWebfontsAndRender: function() {
@@ -167,9 +165,16 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
             },
             onFocusInput: function(ev) {
                 $('body').addClass('fixfixed');
+                $("#btnLink").addClass("animated fadeOutDown");
             },
             onBlurInput: function(ev) {
                 $('body').removeClass('fixfixed');
+                $("#btnLink").removeClass("animated fadeOutDown").addClass("animated fadeInUp");
+            },
+            onClickScrollTop: function(ev) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                $("body").scrollTop(0);
             }
         });
         return StartView;
