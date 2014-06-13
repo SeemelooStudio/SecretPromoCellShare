@@ -1,11 +1,11 @@
 [
 {
     "Id":"wc1",
-    "Text":"世界杯来了，<br />你是从哪一届世界杯开始看球的？",
+    "Text":"世界杯来了，<br />你是从哪一年开始看球的？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f1.jpg",
-    "shareText":"世界杯来了，你是从哪一届世界杯开始看球的？"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f3.jpg",
+    "shareText":"世界杯来了，你是从哪一年开始看球的？"
 },
 {
     "Id":"wc2",
@@ -17,11 +17,19 @@
 },
 {
     "Id":"wc3",
-    "Text":"世界杯来了，<br />历届世界杯哪一场比赛让你印象最深刻？",
+    "Text":"历届世界杯，<br />哪一场比赛让你印象最深刻？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f3.jpg",
-    "shareText":"世界杯来了，历届世界杯哪一场比赛让你印象最深刻？"
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f1.jpg",
+    "shareText":"历届世界杯哪一场比赛让你印象最深刻？"
+},
+{
+    "Id":"father",
+    "Text":"父亲节，想对爸爸说些什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/fa1.jpg",
+    "shareText":"父亲节，想对爸爸说些什么？"
 },
 {
     "Id":"wc4",
