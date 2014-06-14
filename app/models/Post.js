@@ -66,13 +66,13 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             this.postId = Utils.getParameterByName("uid", window.location.href);
             this.openId = Utils.getParameterByName("openid", window.location.href);
             
-            if ( ! this.questionId ) {
+            if ( ! this.questionId  ) {
                 this.questionId = Utils.getParameterByName("questionid", window.location.href);
             }
             if ( !this.postId ) {
                 this.postId = Utils.getParameterByName("userid", window.location.href);
             }
-            if ( !this.postId ) {
+            if ( (!this.postId) || this.questionId ==="XXX") {
                 self.setStaticQuestionById({
                            "onSuccess": function() {
                                self.set("isStatic", true);
