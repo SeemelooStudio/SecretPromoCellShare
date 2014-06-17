@@ -49,6 +49,13 @@
             </div>
         </li>
         {{/Comments}}
+        {{^isStatic}}
+        {{^Comments}}
+        <li id="noCommentTip" class="comment-download clearfix">
+                还没有人评论，快来抢沙发吧！
+        </li>
+        {{/Comments}}
+        {{/isStatic}}
         {{#isStatic}}
         <li class="comment-download clearfix">
                 想知道我怎么说？

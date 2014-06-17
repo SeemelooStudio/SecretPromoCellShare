@@ -111,7 +111,7 @@ body,html {
     height: 100%;
 }
 #main {
-    padding-bottom: 60px;
+    min-height: 100%;
 }
 #preload {
     position: absolute;
@@ -203,8 +203,11 @@ body,html {
     margin: 0;
     padding: 0;
 }
+.comments {
+    padding-bottom: 65px;
+}
 .comment {
-    padding: 1.5em 0;
+    padding: 1.4em 0;
     border-bottom: 1px dashed #dadada;
 }
 .comment-download {
@@ -593,9 +596,9 @@ a {
 #commentContainer {
     position: fixed;
     bottom: 0;
-    padding: 10px;
+    padding: 10px 1%;
     background: #FFF;
-    width: 100%;
+    width: 98%;
     z-index: 999;
     border-top: 1px solid #dedede;
 }
@@ -622,7 +625,6 @@ a {
 }
 #submitComment {
     float: right;
-    margin-right: 20px;
     cursor: pointer;
 }
 #submitComment.loading {
@@ -632,8 +634,12 @@ a {
     background-repeat: no-repeat;
     background-color: #FFF;
 }
+.fixfixed #main {
+    position: relative;
+}
 .fixfixed #commentContainer {
-    position: absolute;
+    position: absolute!important;
+    bottom: 0!important;
 }
 
 #loadingTip {
@@ -642,7 +648,7 @@ a {
     border-radius: 3px;
     color: #fff;
     position: fixed;
-    bottom: 20px;
+    bottom: 70px;
     width: 75%;
     left: 12.5%;
 }

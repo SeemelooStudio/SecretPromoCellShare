@@ -102,11 +102,16 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                         this.model.comment({
                             "content": content,
                             "onSuccess": function() {
+                                $("#noCommentTip").hide();
+                                self.model.set("CommentCount", parseInt(self.model.get("CommentCount")) + 1);
+                                self.$el.find(".commentCount").text(self.model.get("CommentCount"));
                                 self.appendComment(content);
-                                self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutUp");
+                                self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutDown");
                                 self.$el.find("#commentText").val("");
                                 self.$el.find("#submitComment").removeClass("loading");
+                                self.$el.find("#commentContainer").addClass("animated fadeOutDown");
                                 self.isSubmitingComment = false;
+                                $("body").scrollTop(document.body.scrollHeight);
                             },
                             "onError": function() {
                                 self.$el.find("#submitComment").removeClass("loading");
