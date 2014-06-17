@@ -51,17 +51,27 @@
         {{/Comments}}
         {{#isStatic}}
         <li class="comment-download clearfix">
-                想知道我在「秘密」里如何回答？
+                想知道我怎么说？
+        </li>
+        <li class="comment-download-btn clearfix">
+            <a id="btnStaticDownload" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary btn-block btn-lg" >点击下载「秘密」<img id="staticDownload-fox" class="pull-right" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" /></a>
+            
         </li>
         {{/isStatic}}
     </ul>
-    <a id="btnLink" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary btn-lg btn-block"  data-entranceAnimation="fadeInDown"><i class="fa fa-apple fa-2x pull-left"></i>点此下载「秘密」
-    <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
-    </a>
+
 </div>
 
 <div id="loadingTip" class="hidden">「秘密」正在漂洋过海，为您保存</div>
+{{^isStatic}}
+<a id="btnLink" href="http://a.app.qq.com/o/simple.jsp?pkgname=ly.secret.android.china&g_f=995052" onclick="_hmt.push(['_trackEvent', 'download', 'click', 'PromoCell']);" class="btn btn-primary"  data-entranceAnimation="fadeInDown">
 
+    <img id="btnLink-fox" src="app/img/fox.png"  data-entranceAnimation="fadeInRight" />
+    
+    <div> 下载「秘密」</div>
+    
+</a>
+{{/isStatic}}
 {{^isStatic}}
 <div class="form-inline" id="commentContainer">
 

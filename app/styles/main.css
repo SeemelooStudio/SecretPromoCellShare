@@ -107,9 +107,11 @@ body {
     font-family: "Microsoft Yahei", sans-serif;
     font-size: 14px;
 }
+body,html {
+    height: 100%;
+}
 #main {
     padding-bottom: 60px;
-    position: relative;
 }
 #preload {
     position: absolute;
@@ -330,9 +332,7 @@ a {
     font-size: 10px;
     text-align: left;
 }
-#btnLink {
-    margin-top:30px;
-}
+
 /*Cobalt Skyfall Aquamarine Olive Cash EmeraldSea Hopscotch Lavender Burst Cupid Peony Midnight  Vanilla */
 
 .backgroundColor-Cobalt,
@@ -541,21 +541,32 @@ a {
     left: 0;
 }
 #btnLink {
-    position: relative;
-    background-image: url(../../app/img/apple.png);
-    background-size: 24px 30px;
-    background-position: 16px center;
-    background-repeat: no-repeat;
-    line-height: 30px;
-    font-size: 18px;
+    position: fixed;
+    line-height: 14px;
+    font-size: 10px;
+    padding: 5px 2px 5px 7px;
+    right: 5px;
+    top: -10px;
 }
 #btnLink-fox {
-    position: absolute;
-    right: -10px;
-    top: 0;
-    height: 100%;
+    height: 45px;
+    position: relative;
 }
-
+#btnStaticDownload {
+    background: #333 url(../../app/img/apple.png) no-repeat 20px center;
+    background-size:20px 30px;
+    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+}
+#staticDownload-fox {
+    height: 45px;
+    position: absolute;
+    right: -6px;
+    top:5px;
+}
 .overlay {
     position: absolute;
     position: fixed;
@@ -613,11 +624,14 @@ a {
     float: right;
     margin-right: 20px;
     cursor: pointer;
-    background:none;
-    border:none;
-    color: #333;
 }
-
+#submitComment.loading {
+    text-indent: -999px;
+    background-image: url(../../app/img/loadingsmall.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #FFF;
+}
 .fixfixed #commentContainer {
     position: absolute;
 }

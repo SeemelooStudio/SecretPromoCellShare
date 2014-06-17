@@ -52,7 +52,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 });
                 
                 this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".post,.comments,.post-content,#btnLink"),
+                    this.$el.find(".post,.comments,.post-content"),
                     {
                         "isSequential":true,
                         "sequentialDelay":500
@@ -60,7 +60,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 );
 
                 this.foxAnimation = new AnimationScheduler(
-                    this.$el.find("#btnLink-fox")
+                    this.$el.find("#btnLink")
                 );
                 this.animationScheduler.animateIn(function(){
                   self.foxAnimation.animateIn();
@@ -96,7 +96,7 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                     this.isSubmitingComment = true;
                     if ( content && content !== "" ) {
                         
-                        this.$el.find("#commentContainer").addClass("animated fadeOutDown");
+                        this.$el.find("#submitComment").addClass("loading");
                         this.$el.find("#loadingTip").removeClass("hidden").addClass("animated fadeInDown");
                          
                         this.model.comment({
@@ -104,10 +104,12 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                             "onSuccess": function() {
                                 self.appendComment(content);
                                 self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutUp");
+                                self.$el.find("#commentText").val("");
+                                self.$el.find("#submitComment").removeClass("loading");
                                 self.isSubmitingComment = false;
                             },
                             "onError": function() {
-                                self.$el.find("#commentContainer").removeClass("animated fadeOutDown").addClass("animated fadeInUp");
+                                self.$el.find("#submitComment").removeClass("loading");
                                 self.$el.find("#loadingTip").removeClass("animated fadeInDown").addClass("animated fadeOutUp");
                                 self.isSubmitingComment = false;
                             }
@@ -165,11 +167,9 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
             },
             onFocusInput: function(ev) {
                 $('body').addClass('fixfixed');
-                $("#btnLink").addClass("animated fadeOutDown");
             },
             onBlurInput: function(ev) {
                 $('body').removeClass('fixfixed');
-                $("#btnLink").removeClass("animated fadeOutDown").addClass("animated fadeInUp");
             },
             onClickScrollTop: function(ev) {
                 ev.preventDefault();
