@@ -12,7 +12,12 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 this.isSubmitingComment = false;
                 this.isSubmitingLike = false;
                 var self = this;
-
+                if ( navigator.userAgent.indexOf('Android') > -1 ) {
+                    this.notAndroid = false;
+                } else {
+                    this.notAndroid = true;
+                }
+                
                  if ( this.model.isFetchSuccess ) {
                     this.preloadWebfontsAndRender();
                 } else {
@@ -50,23 +55,22 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                     "padding-top":this.textPadding,
                     "padding-bottom":this.textPadding
                 });
-                
-                this.animationScheduler = new AnimationScheduler(
-                    this.$el.find(".post,.comments,.post-content"),
-                    {
-                        "isSequential":true,
-                        "sequentialDelay":500
-                    }
-                );
+                if ( this.notAndroid ) {
+                    this.animationScheduler = new AnimationScheduler(
+                        this.$el.find(".post,.comments,.post-content"),
+                        {
+                            "isSequential":true,
+                            "sequentialDelay":500
+                   }); 
+                    this.animationScheduler.animateIn();
+                                       
+                }
 
-                this.foxAnimation = new AnimationScheduler(
-                    this.$el.find("#btnLink")
-                );
-                this.animationScheduler.animateIn(function(){
-                  self.foxAnimation.animateIn();
-                });
+
+
                 
-                if (window.DeviceOrientationEvent) {
+                
+                if (  (this.notAndroid) && window.DeviceOrientationEvent) {
                     window.addEventListener('deviceorientation', function(eventData){
                         var distanceBeta = eventData.beta * 0.4;
                         var distanceGamma = event.gamma * 0.4;
@@ -171,10 +175,14 @@ define(["jquery", "backbone", "mustache", "text!templates/Start.html", "text!tem
                 
             },
             onFocusInput: function(ev) {
-                $('body').addClass('fixfixed');
+                if ( this.notAndroid ) {
+                    $('body').addClass('fixfixed');
+                }
             },
             onBlurInput: function(ev) {
-                $('body').removeClass('fixfixed');
+                if ( this.notAndroid ) {
+                    $('body').removeClass('fixfixed');
+                }
             },
             onClickScrollTop: function(ev) {
                 ev.preventDefault();
