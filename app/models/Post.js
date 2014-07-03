@@ -72,7 +72,10 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             if ( !this.postId ) {
                 this.postId = Utils.getParameterByName("userid", window.location.href);
             }
-            if ( (!this.postId) || this.questionId ==="XXX") {
+            if ( (!this.questionId) || this.questionId ==="XXX" || this.questionId ==="groupl-rl-1" ) {
+                window.location.href="http://secret-ajax.hortor.net/impress/";
+            }
+            if ( (!this.postId)) {
                 self.setStaticQuestionById({
                            "onSuccess": function() {
                                self.set("isStatic", true);
@@ -94,7 +97,6 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                         }
                     });
                 }
-                
             } else {
                 this.fetchData({
                         onSuccess: function() {
@@ -126,10 +128,15 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                   type : "get",
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
-                    self.set(data);
-                    if ( options && options.onSuccess ) {
-                        options.onSuccess();
-                    }                    
+                    if ( data.QuestionId != self.questionId ) {
+                        window.location.href="http://secret-ajax.hortor.net/impress/";
+                    } else {
+                       self.set(data);
+                        if ( options && options.onSuccess ) {
+                            options.onSuccess();
+                        }  
+                    }
+                                       
                   },
                   error: function(jqXHR, textStatus, errorThrown){
                     if ( options & options.onError ) {
@@ -153,13 +160,18 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                   type : "get",
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
-                    self.set(data);
-                    if ( self.get("CommentCount") > 0 ) {
-                        shareInfo.title = "你有" + self.get("CommentCount") + "个朋友回答了这个问题，你呢？";
+                    if ( data.Text ) {
+                        self.set(data);
+                        if ( self.get("CommentCount") > 0 ) {
+                            shareInfo.title = "你有" + self.get("CommentCount") + "个朋友回答了这个问题，你呢？";
+                        }
+                        if ( options && options.onSuccess ) {
+                            options.onSuccess();
+                        } 
+                    } else {
+                        window.location.href="http://secret-ajax.hortor.net/impress/";
                     }
-                    if ( options && options.onSuccess ) {
-                        options.onSuccess();
-                    }                    
+                                       
                   },
                   error: function(jqXHR, textStatus, errorThrown){
                     if ( options & options.onError ) {
@@ -216,7 +228,6 @@ define(["jquery", "backbone", "utils","collections/Questions"],
                   },
                   dataType: "jsonp",
                   success: function(data, textStatus, jqXHR){
-                    console.log(data);
                     if ( options && options.onSuccess ) {
                         options.onSuccess();
                     }
