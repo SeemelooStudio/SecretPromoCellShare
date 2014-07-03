@@ -1,5 +1,61 @@
 [
 {
+    "Id":"wc1",
+    "Text":"世界杯来了，<br />你是从哪一年开始看球的？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f3.jpg",
+    "shareText":"世界杯来了，你是从哪一年开始看球的？"
+},
+{
+    "Id":"wc2",
+    "Text":"世界杯来了，<br />历届世界杯你最喜欢的球员是谁呢？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f2.jpg",
+    "shareText":"世界杯来了，历届世界杯你最喜欢的球员是谁呢？"
+},
+{
+    "Id":"wc3",
+    "Text":"历届世界杯，<br />哪一场比赛让你印象最深刻？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f1.jpg",
+    "shareText":"历届世界杯哪一场比赛让你印象最深刻？"
+},
+{
+    "Id":"father",
+    "Text":"父亲节，想对爸爸说些什么？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/fa1.jpg",
+    "shareText":"父亲节，想对爸爸说些什么？"
+},
+{
+    "Id":"wc4",
+    "Text":"你身边有几个女球迷？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f4.jpg",
+    "shareText":"你身边有几个女球迷？"
+},
+{
+    "Id":"wc5",
+    "Text":"世界杯历史上你最喜欢的进球是哪个？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f5.jpg",
+    "shareText":"世界杯历史上你最喜欢的进球是哪个？"
+},
+{
+    "Id":"wc6",
+    "Text":"2014巴西世界杯，<br />你觉得哪支球队最有可能夺冠？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/f6.jpg",
+    "shareText":"2014巴西世界杯，你觉得哪支球队最有可能夺冠？"
+},
+{
     "Id":"johnlennon",
     "Text":"你最多的时候<br />一天滚几次床单？",
     "ComposeColorName" : "Midnight",
@@ -28,7 +84,7 @@
     "Text":"你为什么<br />离开了上一家公司？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q7.jpg",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/14.jpg",
     "shareText":"你为什么离开了上一家公司？"
 },
 {
@@ -157,7 +213,7 @@
     "Text":"认识的人里你最想睡谁，<br />为什么？",
     "ComposeColorName" : "Midnight",
     "ComposeTextureName" : "Twilight",
-    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q6.jpg",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q14.jpg",
     "shareText":"认识的人里你最想睡谁，为什么？"
 },
 {
@@ -217,5 +273,53 @@
     "ComposeTextureName" : "Twilight",
     "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q27.jpg",
     "shareText":"你的收入和看起来一样多么？"
+},
+{
+    "Id":"groupf-rl-1",
+    "Text":"你最多的时候<br/>一天滚几次床单？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/6.jpg",
+    "shareText":"你最多的时候一天滚几次床单？"
+},
+{
+    "Id":"groupf-rl-2",
+    "Text":"你最喜欢YY的明星是谁？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/12.jpg",
+    "shareText":"你最喜欢YY的明星是谁？"
+},
+{
+    "Id":"groupf-rl-3",
+    "Text":"你和你的宠物最难忘的一刻是？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q19.jpg",
+    "shareText":"你和你的宠物最难忘的一刻是？"
+},
+{
+    "Id":"groupg-rl-1",
+    "Text":"你为什么离开了上一家公司？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/19.jpg",
+    "shareText":"你为什么离开了上一家公司？"
+},
+{
+    "Id":"groupg-rl-2",
+    "Text":"你最喜欢在什么地方OOXX？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/10.jpg",
+    "shareText":"你最喜欢在什么地方OOXX？"
+},
+{
+    "Id":"groupg-rl-3",
+    "Text":"开车的时候，<br />你最希望副驾驶上是谁？",
+    "ComposeColorName" : "Midnight",
+    "ComposeTextureName" : "Twilight",
+    "BackgroundImageUrl" : "http://secret.seemeloo.com/ShareAQuestion/app/img/questions/q17.jpg",
+    "shareText":"开车的时候，你最希望副驾驶上坐的是谁？"
 }
 ]
