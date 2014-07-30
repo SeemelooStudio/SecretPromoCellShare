@@ -75,7 +75,7 @@ define(["jquery", "backbone", "utils","collections/Questions"],
             if ( (!this.questionId) || this.questionId ==="XXX" || this.questionId ==="groupl-rl-1" ) {
                 window.location.href="http://secret-ajax.hortor.net/impress/";
             }
-            if ( this.questionId ==="777" ) {
+            if ( this.questionId==="groupvalen-rl-1" || this.questionId ==="777" ) {
                 window.location.href="http://secret-ajax.hortor.net/valentine/";
             }
             if ( (!this.postId)) {
